@@ -488,9 +488,29 @@ namespace testingActcad
                 for (int i = System.Windows.Forms.Application.OpenForms.Count - 1; i >= 0; i--)
                 {
                     if (System.Windows.Forms.Application.OpenForms[i].Name == "ucProfilesWindow")
+                    {
                         System.Windows.Forms.Application.OpenForms[i].Close();
+                    }
+                    else
+                    {
+                       var  ele = System.Windows.Forms.Application.OpenForms[i].Controls[0];
+                        
+                        if(ele.Name=="elementHost1")
+                        {
+                            System.Windows.Forms.Integration.ElementHost eh = ele as System.Windows.Forms.Integration.ElementHost;
+
+                            var ch =eh.Child;
+                            //var ch = ele.GetContainerControl();
+                            //System.Windows.UIElement ct = ch as System.Windows.UIElement;
+                            testingActcad.beamproperties bp = ch as testingActcad.beamproperties;
+                            bp.txtProfile.Text = ProfileName;
+                        }
+                        
+                    }
+                        
                    
                 }
+                
             
                 
             }

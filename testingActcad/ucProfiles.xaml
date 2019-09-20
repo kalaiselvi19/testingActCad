@@ -18,7 +18,7 @@
         
         <Button Content="OK" Name="btnok" Click="btnok_Click" HorizontalAlignment="Left" Margin="24,264,0,0" VerticalAlignment="Top" Width="75"/>
         <Button Content="Cancel" Name="btnCancel" Click="btnCancel_Click" HorizontalAlignment="Left" Margin="167,264,0,0" VerticalAlignment="Top" Width="75"/>
-        <TextBox Text="{Binding ElementName=trProfiles,Path=SelectedValuePath}"  HorizontalAlignment="Left" Height="23" Margin="10,219,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        
 
     </Grid>
 </UserControl>

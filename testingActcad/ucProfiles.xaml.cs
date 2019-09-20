@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace testingActcad
 {
@@ -19,17 +8,19 @@ namespace testingActcad
     /// Interaction logic for ucProfiles.xaml
     /// </summary>
     public partial class ucProfiles : UserControl
-
     {
-        private string selectedPfname="";
-        private Beam sb=null;
-        private beamproperties bp=null;
+        private string selectedPfname = "";
+        private Beam sb = null;
+        private beamproperties bp = null;
+
         public ucProfiles()
         {
             InitializeComponent();
             getupdate();
-            
         }
+        /// <summary>
+        /// all the profile values appended to dictionary  assigned to the itemsource of treeview
+        /// </summary>
         private void getupdate()
         {
             sb = new Beam();
@@ -48,7 +39,11 @@ namespace testingActcad
             sb = null;
             bp = null;
         }
-
+        /// <summary>
+        /// assigns the selected profile to the Beam class variable ProfileName and closes the profile window 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnok_Click(object sender, RoutedEventArgs e)
         {
             sb = new Beam();
@@ -57,26 +52,29 @@ namespace testingActcad
             sb.closeProfilesWindow();
             sb = null;
         }
-
+        /// <summary>
+        /// Closes the profiles window
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
             sb = new Beam();
             sb.closeProfilesWindow();
             sb = null;
         }
-
+        /// <summary>
+        /// this is triggered on selecting the treeview items and assigned to  local variable
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void trProfiles_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
             var lt = e.NewValue;
-           //Dictionary<string,List<ProfileNames>> ds=lt as Dictionary<string,List<ProfileNames>>;
-           // MessageBox.Show(ds.First().Key.ToString());
 
-           System.Collections.Generic.KeyValuePair<string, System.Collections.Generic.List<ProfileNames>> ls = (System.Collections.Generic.KeyValuePair<string, System.Collections.Generic.List<ProfileNames>>)lt;
-         //MessageBox.Show(ls.Key);
-         selectedPfname = ls.Key;
-           //Dictionary<string,List<ProfileNames>> ds =e.NewValue as Dictionary<string,List<ProfileNames>>;
-           MessageBox.Show(e.NewValue.ToString());
-       
+            System.Collections.Generic.KeyValuePair<string, System.Collections.Generic.List<ProfileNames>> ls = (System.Collections.Generic.KeyValuePair<string, System.Collections.Generic.List<ProfileNames>>)lt;
+            //MessageBox.Show(ls.Key);
+            selectedPfname = ls.Key;
         }
     }
 }

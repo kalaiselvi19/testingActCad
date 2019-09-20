@@ -46,6 +46,7 @@ namespace testingActcad
                 upfw = new ucProfilesWindow();
            
             IntelliCAD.ApplicationServices.Application.ShowModelessDialog(upfw);
+            
         }
 
         private void chkCheck_Changed(object sender, RoutedEventArgs e)
