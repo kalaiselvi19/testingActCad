@@ -70,7 +70,6 @@
     <Compile Include="BeamPropertiesWindow.designer.cs">
       <DependentUpon>BeamPropertiesWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Class1.cs" />
     <Compile Include="ColumnProperties.xaml.cs">
       <DependentUpon>ColumnProperties.xaml</DependentUpon>
     </Compile>

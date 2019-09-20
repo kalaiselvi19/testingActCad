@@ -45,14 +45,14 @@ namespace testingActcad
         private Database db = IntelliCAD.ApplicationServices.Application.DocumentManager.MdiActiveDocument.Database;
         private Editor ed = IntelliCAD.ApplicationServices.Application.DocumentManager.MdiActiveDocument.Editor;
 
-        //private IntelliCAD.Windows.PaletteSet ps;
+        
         private beamproperties bp;
         
         public BeamPropertiesWindow bpw;
         public ColumnPropertiesWindow cpw;
         
         private List<ProfileNames> pflist;
-       // public Dictionary<string,ProfileNames> dict;
+       
         public Dictionary<string,List<ProfileNames>> dict;
         public string Name = "";
         public string ProfileName = "";
@@ -85,7 +85,7 @@ namespace testingActcad
             catch (Teigha.Runtime.Exception ex)
             {
                 IntelliCAD.ApplicationServices.Application.ShowAlertDialog(ex.ToString());
-                //tr.Abort();
+               
             }
             catch (System.Exception e)
             {
@@ -111,7 +111,7 @@ namespace testingActcad
                     {
                         if (reader.IsStartElement())
                         {
-                            //return only when you have START tag
+                           
                             switch (reader.Name.ToString())
                             {
                                 case "ProfileName":
@@ -157,7 +157,7 @@ namespace testingActcad
             catch (Teigha.Runtime.Exception ex)
             {
                 IntelliCAD.ApplicationServices.Application.ShowAlertDialog(ex.ToString());
-                //tr.Abort();
+             
             }
             catch (System.Exception e)
             {
@@ -184,7 +184,7 @@ namespace testingActcad
             catch (Teigha.Runtime.Exception ex)
             {
                 IntelliCAD.ApplicationServices.Application.ShowAlertDialog(ex.ToString());
-                //tr.Abort();
+             
             }
             catch (System.Exception e)
             {
@@ -210,7 +210,7 @@ namespace testingActcad
             catch (Teigha.Runtime.Exception ex)
             {
                 IntelliCAD.ApplicationServices.Application.ShowAlertDialog(ex.ToString());
-                //tr.Abort();
+             
             }
         }
         /// <summary>
@@ -231,7 +231,7 @@ namespace testingActcad
             catch (Teigha.Runtime.Exception ex)
             {
                 IntelliCAD.ApplicationServices.Application.ShowAlertDialog(ex.ToString());
-                //tr.Abort();
+             
             }
             catch (System.Exception objError)
             {
@@ -239,26 +239,7 @@ namespace testingActcad
             }
         }
 
-        /// <summary>
-        /// loads and shows the profiles window
-        /// </summary>
-        public void getprofiles()
-        {
-            try
-            {
-               // updateVariables();
-                //pf = new Profiles();                
-                //pfw = new ProfileWindow();
-                ////pf.Readprofiles();
-                //IntelliCAD.ApplicationServices.Application.ShowModelessDialog(pfw);
-            }
-            catch (Teigha.Runtime.Exception ex)
-            {
-                IntelliCAD.ApplicationServices.Application.ShowAlertDialog(ex.ToString());
-                //tr.Abort();
-            }
-        }
-
+  
        
 
         /// <summary>
@@ -270,10 +251,10 @@ namespace testingActcad
         {
             try
             {
-                //string textFile = Path.Combine(projectFolder, "DB") +"\\TeklaProfiles.lis";
+               
 
                 string[] lines = File.ReadAllLines(textFile);
-                //int lineno = 1;
+             
                 string pfname = "";
                 string ht = "";
                 string wd = "";
@@ -322,9 +303,9 @@ namespace testingActcad
                         pflist.Add(ProfileNames);
                     }
 
-                    //lineno = lineno + 1;
+                   
                 }
-                //string xmlFile = Path.Combine(projectFolder, "DB") + "\\TeklaProfiles.xml";
+               
                 char[] charsToTrim = { '.', 'l', 'i', 's' };
                 string xmlFile = Path.Combine(textFile.TrimEnd(charsToTrim)) + ".xml";
                 using (FileStream fs = new FileStream(xmlFile, FileMode.Create))
@@ -335,7 +316,7 @@ namespace testingActcad
             catch (Teigha.Runtime.Exception ex)
             {
                 IntelliCAD.ApplicationServices.Application.ShowAlertDialog(ex.ToString());
-                //tr.Abort();
+              
             }
             catch (System.Exception e)
             {
@@ -374,7 +355,7 @@ namespace testingActcad
             catch (Teigha.Runtime.Exception ex)
             {
                 IntelliCAD.ApplicationServices.Application.ShowAlertDialog(ex.ToString());
-                //tr.Abort();
+               
             }
         }
         /// <summary>
@@ -387,7 +368,7 @@ namespace testingActcad
             {
                 //if (System.Windows.Forms.Application.OpenForms[i].Name == "BeamPropertiesWindow")
                     System.Windows.Forms.Application.OpenForms[i].Hide();
-                //System.Windows.Forms.Application.OpenForms[i].Close();
+                
             }
         }
 
@@ -400,7 +381,7 @@ namespace testingActcad
             {
                 if (ProfileName != "")
                 {
-                    // ReadProfiles();
+                   
                     foreach (ProfileNames pf in pflist)
                     {
                         if (pf.ProfileName == ProfileName)
@@ -424,7 +405,7 @@ namespace testingActcad
             catch (Teigha.Runtime.Exception ex)
             {
                 IntelliCAD.ApplicationServices.Application.ShowAlertDialog(ex.ToString());
-                //tr.Abort();
+                
             }
         }
 
@@ -438,7 +419,7 @@ namespace testingActcad
             catch (Teigha.Runtime.Exception ex)
             {
                 IntelliCAD.ApplicationServices.Application.ShowAlertDialog(ex.ToString());
-                //tr.Abort();
+               
             }
         }
 
@@ -449,9 +430,9 @@ namespace testingActcad
             var count = System.Windows.Forms.Application.OpenForms.Count;
             for (int i = System.Windows.Forms.Application.OpenForms.Count - 1; i >= 0; i--)
             {
-                if (System.Windows.Forms.Application.OpenForms[i].Name == "ColumnPropertiesWindow")
+               // if (System.Windows.Forms.Application.OpenForms[i].Name == "ColumnPropertiesWindow")
                     System.Windows.Forms.Application.OpenForms[i].Hide();
-                //System.Windows.Forms.Application.OpenForms[i].Close();
+               
             }
         }
 
@@ -462,13 +443,11 @@ namespace testingActcad
             try
             {
                 string xmlname = beamproperties.xmfile;
-                string projectFolder = new DirectoryInfo(Environment.CurrentDirectory).Parent.Parent.FullName;
-                //string xmlfile = System.IO.Path.Combine(projectFolder, "DB") + "\\USIMPERIAL-PROFILES.xml";
+                string projectFolder = new DirectoryInfo(Environment.CurrentDirectory).Parent.Parent.FullName;               
                 string xmlfile = System.IO.Path.Combine(projectFolder, "DB") + "\\"+ xmlname+"-PROFILES.xml"; 
                 XmlDataDocument xmldoc = new XmlDataDocument();
                 XmlNodeList xmlnode;
-                int i = 0;
-                //string str = null;
+                int i = 0;                
                 FileStream fs = new FileStream(xmlfile, FileMode.Open, FileAccess.Read);
                 xmldoc.Load(fs);
                 xmlnode = xmldoc.GetElementsByTagName("ProfileNames");              
@@ -496,7 +475,7 @@ namespace testingActcad
             catch (Teigha.Runtime.Exception ex)
             {
                 IntelliCAD.ApplicationServices.Application.ShowAlertDialog(ex.ToString());
-                //tr.Abort();
+               
             }
 
         }
@@ -510,8 +489,10 @@ namespace testingActcad
                 {
                     if (System.Windows.Forms.Application.OpenForms[i].Name == "ucProfilesWindow")
                         System.Windows.Forms.Application.OpenForms[i].Close();
-                    //System.Windows.Forms.Application.OpenForms[i].Close();
+                   
                 }
+            
+                
             }
            
              catch (Teigha.Runtime.Exception ex)

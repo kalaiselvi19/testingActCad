@@ -38,24 +38,13 @@ namespace testingActcad
 
         private void btnProfileSelect_Click(object sender, RoutedEventArgs e)
         {
-            //sb = new Beam();
-            //sb.getprofiles();
-            //sb = null;
-            //assignvalues();
+            
             OPTIONCHANGE();
             pfname = this.txtProfile.Text;
-           // pf = new Profiles(); 
-           
-            //if (pfw == null)
-            //{
-            //    pfw = new ProfileWindow();
-            //}
-            //if (upfw == null)
-            //{
+          
                 upfw = null;
                 upfw = new ucProfilesWindow();
-            //}
-            //pf.Readprofiles();
+           
             IntelliCAD.ApplicationServices.Application.ShowModelessDialog(upfw);
         }
 
@@ -71,10 +60,7 @@ namespace testingActcad
                 this.chkPlane.IsChecked = true;
                 this.chkRotation.IsChecked = true;
                 this.chkDepth.IsChecked = true;
-                //if( chkUncheck.IsChecked==true)
-                //{
-                //    this.chkUncheck.IsChecked = false;
-                //}
+               
             }
             else
             {
@@ -86,35 +72,11 @@ namespace testingActcad
                 this.chkPlane.IsChecked = false;
                 this.chkRotation.IsChecked = false;
                 this.chkDepth.IsChecked = false;
-                //if (chkUncheck.IsChecked == false)
-                //{
-                //    this.chkUncheck.IsChecked = true;
-                //}
+               
             }
         }
 
-        //private void chkUncheck_Changed(object sender, RoutedEventArgs e)
-        //{
-        //    if (chkUncheck.IsChecked == true)
-        //    {
-        //        this.chkName.IsChecked = false;
-        //        this.chkMaterial.IsChecked = false;
-        //        this.chkProfile.IsChecked = false;
-        //        this.chkFinish.IsChecked = false;
-        //        this.chkcolor.IsChecked = false;
-        //        if (chkCheck.IsChecked == true)
-        //        {
-        //            chkCheck.IsChecked = false;
-        //        }
-        //    }
-        //    else
-        //    {
-        //        if (chkCheck.IsChecked == false)
-        //        {
-        //            chkCheck.IsChecked = true;
-        //        }
-        //    }
-        //}
+       
 
         private void btnOK_Click(object sender, RoutedEventArgs e)
         {
@@ -154,9 +116,7 @@ namespace testingActcad
 
         private void btnProfileSelect_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            //sb = new Beam();
-            //sb.getprofiles();
-            //sb = null;
+        
         }
         /// <summary>
         /// assigns values to the beam property window from class variables

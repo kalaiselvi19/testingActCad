@@ -21,6 +21,7 @@ namespace testingActcad
     public partial class ucProfiles : UserControl
 
     {
+        private string selectedPfname="";
         private Beam sb=null;
         private beamproperties bp=null;
         public ucProfiles()
@@ -51,6 +52,8 @@ namespace testingActcad
         private void btnok_Click(object sender, RoutedEventArgs e)
         {
             sb = new Beam();
+
+            sb.ProfileName = selectedPfname;
             sb.closeProfilesWindow();
             sb = null;
         }
@@ -60,6 +63,20 @@ namespace testingActcad
             sb = new Beam();
             sb.closeProfilesWindow();
             sb = null;
+        }
+
+        private void trProfiles_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {
+            var lt = e.NewValue;
+           //Dictionary<string,List<ProfileNames>> ds=lt as Dictionary<string,List<ProfileNames>>;
+           // MessageBox.Show(ds.First().Key.ToString());
+
+           System.Collections.Generic.KeyValuePair<string, System.Collections.Generic.List<ProfileNames>> ls = (System.Collections.Generic.KeyValuePair<string, System.Collections.Generic.List<ProfileNames>>)lt;
+         //MessageBox.Show(ls.Key);
+         selectedPfname = ls.Key;
+           //Dictionary<string,List<ProfileNames>> ds =e.NewValue as Dictionary<string,List<ProfileNames>>;
+           MessageBox.Show(e.NewValue.ToString());
+       
         }
     }
 }
