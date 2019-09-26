@@ -1,19 +1,12 @@
 ﻿using IntelliCAD.ApplicationServices;
 using IntelliCAD.EditorInput;
-using IntelliCAD.Runtime;
-//using IntelliCAD.Windows;
-using Teigha.DatabaseServices;
-using Teigha.GraphicsInterface;
-using Teigha.Geometry;
-using Teigha.Runtime;
-
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Xml;
 using System.Xml.Serialization;
-using System.Windows;
-using System.Windows.Controls;
+using Teigha.DatabaseServices;
+using Teigha.Runtime;
 
 namespace testingActcad
 {
@@ -45,15 +38,14 @@ namespace testingActcad
         private Database db = IntelliCAD.ApplicationServices.Application.DocumentManager.MdiActiveDocument.Database;
         private Editor ed = IntelliCAD.ApplicationServices.Application.DocumentManager.MdiActiveDocument.Editor;
 
-        
         private beamproperties bp;
-        
+
         public BeamPropertiesWindow bpw;
         public ColumnPropertiesWindow cpw;
-        
+
         private List<ProfileNames> pflist;
-       
-        public Dictionary<string,List<ProfileNames>> dict;
+
+        public Dictionary<string, List<ProfileNames>> dict;
         public string Name = "";
         public string ProfileName = "";
         public string Material = "";
@@ -85,7 +77,6 @@ namespace testingActcad
             catch (Teigha.Runtime.Exception ex)
             {
                 IntelliCAD.ApplicationServices.Application.ShowAlertDialog(ex.ToString());
-               
             }
             catch (System.Exception e)
             {
@@ -111,7 +102,6 @@ namespace testingActcad
                     {
                         if (reader.IsStartElement())
                         {
-                           
                             switch (reader.Name.ToString())
                             {
                                 case "ProfileName":
@@ -157,7 +147,6 @@ namespace testingActcad
             catch (Teigha.Runtime.Exception ex)
             {
                 IntelliCAD.ApplicationServices.Application.ShowAlertDialog(ex.ToString());
-             
             }
             catch (System.Exception e)
             {
@@ -184,7 +173,6 @@ namespace testingActcad
             catch (Teigha.Runtime.Exception ex)
             {
                 IntelliCAD.ApplicationServices.Application.ShowAlertDialog(ex.ToString());
-             
             }
             catch (System.Exception e)
             {
@@ -192,9 +180,9 @@ namespace testingActcad
             }
         }
 
-         ///<summary>
-         ///this command brings up the Columnproperties UI
-         ///</summary>
+        ///<summary>
+        ///this command brings up the Columnproperties UI
+        ///</summary>
         [CommandMethod("column")]
         public void DrawColumn()
         {
@@ -210,9 +198,9 @@ namespace testingActcad
             catch (Teigha.Runtime.Exception ex)
             {
                 IntelliCAD.ApplicationServices.Application.ShowAlertDialog(ex.ToString());
-             
             }
         }
+
         /// <summary>
         /// this command brings up the beamproperties UI
         /// </summary>
@@ -221,26 +209,22 @@ namespace testingActcad
         {
             try
             {
-                if (bpw==null)
+                if (bpw == null)
                 {
                     bpw = new BeamPropertiesWindow();
                 }
-                
-               IntelliCAD.ApplicationServices.Application.ShowModelessDialog(bpw);
+
+                IntelliCAD.ApplicationServices.Application.ShowModelessDialog(bpw);
             }
             catch (Teigha.Runtime.Exception ex)
             {
                 IntelliCAD.ApplicationServices.Application.ShowAlertDialog(ex.ToString());
-             
             }
             catch (System.Exception objError)
             {
                 System.Exception xx = objError;
             }
         }
-
-  
-       
 
         /// <summary>
         /// reads the lis files and writes as xml file
@@ -251,10 +235,8 @@ namespace testingActcad
         {
             try
             {
-               
-
                 string[] lines = File.ReadAllLines(textFile);
-             
+
                 string pfname = "";
                 string ht = "";
                 string wd = "";
@@ -302,10 +284,8 @@ namespace testingActcad
                         var ProfileNames = new ProfileNames { ProfileName = pfname, Height = ht, Width = wd, Flange_thickness = fthk, weight_per_unit_length = wt, Web_thickness = webthk };
                         pflist.Add(ProfileNames);
                     }
-
-                   
                 }
-               
+
                 char[] charsToTrim = { '.', 'l', 'i', 's' };
                 string xmlFile = Path.Combine(textFile.TrimEnd(charsToTrim)) + ".xml";
                 using (FileStream fs = new FileStream(xmlFile, FileMode.Create))
@@ -316,7 +296,6 @@ namespace testingActcad
             catch (Teigha.Runtime.Exception ex)
             {
                 IntelliCAD.ApplicationServices.Application.ShowAlertDialog(ex.ToString());
-              
             }
             catch (System.Exception e)
             {
@@ -355,9 +334,9 @@ namespace testingActcad
             catch (Teigha.Runtime.Exception ex)
             {
                 IntelliCAD.ApplicationServices.Application.ShowAlertDialog(ex.ToString());
-               
             }
         }
+
         /// <summary>
         /// closes the beamproperties window
         /// </summary>
@@ -367,8 +346,7 @@ namespace testingActcad
             for (int i = System.Windows.Forms.Application.OpenForms.Count - 1; i >= 0; i--)
             {
                 //if (System.Windows.Forms.Application.OpenForms[i].Name == "BeamPropertiesWindow")
-                    System.Windows.Forms.Application.OpenForms[i].Hide();
-                
+                System.Windows.Forms.Application.OpenForms[i].Hide();
             }
         }
 
@@ -381,7 +359,6 @@ namespace testingActcad
             {
                 if (ProfileName != "")
                 {
-                   
                     foreach (ProfileNames pf in pflist)
                     {
                         if (pf.ProfileName == ProfileName)
@@ -397,7 +374,6 @@ namespace testingActcad
                             plane_txt = pf.plane_txt;
                             Top_txt = pf.top_txt;
                             Bottom_txt = pf.bottom_txt;
-                         
                         }
                     }
                 }
@@ -405,7 +381,6 @@ namespace testingActcad
             catch (Teigha.Runtime.Exception ex)
             {
                 IntelliCAD.ApplicationServices.Application.ShowAlertDialog(ex.ToString());
-                
             }
         }
 
@@ -413,45 +388,37 @@ namespace testingActcad
         {
             try
             {
-                
-               
             }
             catch (Teigha.Runtime.Exception ex)
             {
                 IntelliCAD.ApplicationServices.Application.ShowAlertDialog(ex.ToString());
-               
             }
         }
-
-        
 
         internal void closeColumn()
         {
             var count = System.Windows.Forms.Application.OpenForms.Count;
             for (int i = System.Windows.Forms.Application.OpenForms.Count - 1; i >= 0; i--)
             {
-               // if (System.Windows.Forms.Application.OpenForms[i].Name == "ColumnPropertiesWindow")
-                    System.Windows.Forms.Application.OpenForms[i].Hide();
-               
+                // if (System.Windows.Forms.Application.OpenForms[i].Name == "ColumnPropertiesWindow")
+                System.Windows.Forms.Application.OpenForms[i].Hide();
             }
         }
-
-
 
         internal void updateVariables()
         {
             try
             {
                 string xmlname = beamproperties.xmfile;
-                string projectFolder = new DirectoryInfo(Environment.CurrentDirectory).Parent.Parent.FullName;               
-                string xmlfile = System.IO.Path.Combine(projectFolder, "DB") + "\\"+ xmlname+"-PROFILES.xml"; 
+                string projectFolder = new DirectoryInfo(Environment.CurrentDirectory).Parent.Parent.FullName;
+                string xmlfile = System.IO.Path.Combine(projectFolder, "DB") + "\\" + xmlname + "-PROFILES.xml";
                 XmlDataDocument xmldoc = new XmlDataDocument();
                 XmlNodeList xmlnode;
-                int i = 0;                
+                int i = 0;
                 FileStream fs = new FileStream(xmlfile, FileMode.Open, FileAccess.Read);
                 xmldoc.Load(fs);
-                xmlnode = xmldoc.GetElementsByTagName("ProfileNames");              
-                dict = new Dictionary<string,List<ProfileNames>>();
+                xmlnode = xmldoc.GetElementsByTagName("ProfileNames");
+                dict = new Dictionary<string, List<ProfileNames>>();
                 for (i = 0; i <= xmlnode.Count - 1; i++)
                 {
                     xmlnode[i].ChildNodes.Item(0).InnerText.Trim();
@@ -465,19 +432,16 @@ namespace testingActcad
                     wt = xmlnode[i].ChildNodes.Item(5).InnerText.Trim();
 
                     var ProfileNames = new ProfileNames { ProfileName = ProfileName, Height = Ht, Width = Wd, Flange_thickness = flangethk, weight_per_unit_length = wt, Web_thickness = webthk };
-                      pflist = new List<ProfileNames>();
+                    pflist = new List<ProfileNames>();
                     pflist.Add(ProfileNames);
-                    
+
                     dict.Add(ProfileName, pflist);
                 }
-
             }
             catch (Teigha.Runtime.Exception ex)
             {
                 IntelliCAD.ApplicationServices.Application.ShowAlertDialog(ex.ToString());
-               
             }
-
         }
 
         internal void closeProfilesWindow()
@@ -493,34 +457,23 @@ namespace testingActcad
                     }
                     else
                     {
-                       var  ele = System.Windows.Forms.Application.OpenForms[i].Controls[0];
-                        
-                        if(ele.Name=="elementHost1")
+                        var ele = System.Windows.Forms.Application.OpenForms[i].Controls[0];
+
+                        if (ele.Name == "elementHost1")
                         {
                             System.Windows.Forms.Integration.ElementHost eh = ele as System.Windows.Forms.Integration.ElementHost;
 
-                            var ch =eh.Child;
-                            //var ch = ele.GetContainerControl();
-                            //System.Windows.UIElement ct = ch as System.Windows.UIElement;
+                            var ch = eh.Child;
                             testingActcad.beamproperties bp = ch as testingActcad.beamproperties;
                             bp.txtProfile.Text = ProfileName;
                         }
-                        
                     }
-                        
-                   
                 }
-                
-            
-                
             }
-           
-             catch (Teigha.Runtime.Exception ex)
+            catch (Teigha.Runtime.Exception ex)
             {
                 IntelliCAD.ApplicationServices.Application.ShowAlertDialog(ex.ToString());
-                //tr.Abort();
             }
-
         }
     }
 }

@@ -1,7 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.IO;
 
 namespace testingActcad
 {
@@ -11,18 +10,21 @@ namespace testingActcad
     public partial class beamproperties : UserControl
     {
         private Beam sb;
-        
+
         private ucProfilesWindow upfw;
         private static string xml;
+
         public static string xmfile
         {
             get { return xml; }
             set { xml = value; }
         }
+
         private static string pfname;
+
         public static string Profname
         {
-            get { return pfname;}
+            get { return pfname; }
             set { pfname = value; }
         }
 
@@ -32,21 +34,17 @@ namespace testingActcad
             this.cmboPlane.SelectedIndex = 1;
             this.cmboRotation.SelectedIndex = 1;
             this.cmboDepth.SelectedIndex = 1;
-            
-
         }
 
         private void btnProfileSelect_Click(object sender, RoutedEventArgs e)
         {
-            
             OPTIONCHANGE();
             pfname = this.txtProfile.Text;
-          
-                upfw = null;
-                upfw = new ucProfilesWindow();
-           
+
+            upfw = null;
+            upfw = new ucProfilesWindow();
+
             IntelliCAD.ApplicationServices.Application.ShowModelessDialog(upfw);
-            
         }
 
         private void chkCheck_Changed(object sender, RoutedEventArgs e)
@@ -61,7 +59,6 @@ namespace testingActcad
                 this.chkPlane.IsChecked = true;
                 this.chkRotation.IsChecked = true;
                 this.chkDepth.IsChecked = true;
-               
             }
             else
             {
@@ -73,11 +70,8 @@ namespace testingActcad
                 this.chkPlane.IsChecked = false;
                 this.chkRotation.IsChecked = false;
                 this.chkDepth.IsChecked = false;
-               
             }
         }
-
-       
 
         private void btnOK_Click(object sender, RoutedEventArgs e)
         {
@@ -117,8 +111,8 @@ namespace testingActcad
 
         private void btnProfileSelect_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-        
         }
+
         /// <summary>
         /// assigns values to the beam property window from class variables
         /// </summary>
@@ -159,8 +153,8 @@ namespace testingActcad
         private void btnLoadXml_Click(object sender, RoutedEventArgs e)
         {
             OPTIONCHANGE();
+        }
 
-        } 
         private void OPTIONCHANGE()
         {
             if (this.optionAustralian.IsChecked == true)

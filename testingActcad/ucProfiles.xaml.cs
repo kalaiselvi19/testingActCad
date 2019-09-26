@@ -18,6 +18,7 @@ namespace testingActcad
             InitializeComponent();
             getupdate();
         }
+
         /// <summary>
         /// all the profile values appended to dictionary  assigned to the itemsource of treeview
         /// </summary>
@@ -39,8 +40,9 @@ namespace testingActcad
             sb = null;
             bp = null;
         }
+
         /// <summary>
-        /// assigns the selected profile to the Beam class variable ProfileName and closes the profile window 
+        /// assigns the selected profile to the Beam class variable ProfileName and closes the profile window
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -52,6 +54,7 @@ namespace testingActcad
             sb.closeProfilesWindow();
             sb = null;
         }
+
         /// <summary>
         /// Closes the profiles window
         /// </summary>
@@ -63,6 +66,7 @@ namespace testingActcad
             sb.closeProfilesWindow();
             sb = null;
         }
+
         /// <summary>
         /// this is triggered on selecting the treeview items and assigned to  local variable
         /// </summary>
@@ -73,7 +77,7 @@ namespace testingActcad
             var lt = e.NewValue;
 
             System.Collections.Generic.KeyValuePair<string, System.Collections.Generic.List<ProfileNames>> ls = (System.Collections.Generic.KeyValuePair<string, System.Collections.Generic.List<ProfileNames>>)lt;
-            //MessageBox.Show(ls.Key);
+
             selectedPfname = ls.Key;
         }
     }
