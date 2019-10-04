@@ -206,14 +206,17 @@ namespace testingActcad
         /// </summary>
         [CommandMethod("beam")]
         public void DrawBeam()
+        
         {
             try
             {
+               
                 if (bpw == null)
                 {
                     bpw = new BeamPropertiesWindow();
                 }
-
+               
+                
                 IntelliCAD.ApplicationServices.Application.ShowModelessDialog(bpw);
             }
             catch (Teigha.Runtime.Exception ex)
@@ -422,8 +425,7 @@ namespace testingActcad
                 for (i = 0; i <= xmlnode.Count - 1; i++)
                 {
                     xmlnode[i].ChildNodes.Item(0).InnerText.Trim();
-                    //str = xmlnode[i].ChildNodes.Item(0).InnerText.Trim() + "  " + xmlnode[i].ChildNodes.Item(1).InnerText.Trim() + "  " + xmlnode[i].ChildNodes.Item(2).InnerText.Trim();
-                    //MessageBox.Show(str);
+                   
                     ProfileName = xmlnode[i].ChildNodes.Item(0).InnerText.Trim();
                     Ht = xmlnode[i].ChildNodes.Item(1).InnerText.Trim();
                     Wd = xmlnode[i].ChildNodes.Item(2).InnerText.Trim();
