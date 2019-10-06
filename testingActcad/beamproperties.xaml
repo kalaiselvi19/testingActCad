@@ -11,7 +11,7 @@
                     <Label Content="Name:" HorizontalAlignment="Left" Margin="23,12,0,0" VerticalAlignment="Top" />
                     <TextBox HorizontalAlignment="Left" Height="23" Margin="78,12,0,0" x:Name="txtName" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" />
                     <Label Content="Profile:" HorizontalAlignment="Left" Margin="23,39,0,0" VerticalAlignment="Top" />
-                    <TextBox HorizontalAlignment="Left" Height="23" Margin="78,42,0,0" TextWrapping="Wrap" x:Name="txtProfile" Text="" VerticalAlignment="Top" Width="120" />
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="78,42,0,0" TextWrapping="Wrap" x:Name="txtProfile" Text="" VerticalAlignment="Top" Width="120" TextChanged="txtProfile_TextChanged" />
                     <Button Content="Select" MouseDoubleClick="btnProfileSelect_MouseDoubleClick" HorizontalAlignment="Left" Click="btnProfileSelect_Click" x:Name="btnProfileSelect" Margin="207,41,0,0" VerticalAlignment="Top" Width="75" />
                     <Label Content="Material:" HorizontalAlignment="Left" Margin="23,66,0,0" VerticalAlignment="Top" />
                     <TextBox HorizontalAlignment="Left" Height="23" Margin="78,69,0,0" TextWrapping="Wrap" x:Name="txtMaterial" Text="" VerticalAlignment="Top" Width="120" />

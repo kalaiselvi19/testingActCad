@@ -175,5 +175,10 @@ namespace testingActcad
                 xml = "CHINA";
             }
         }
+
+        private void txtProfile_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

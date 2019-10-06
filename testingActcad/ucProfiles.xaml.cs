@@ -51,6 +51,7 @@ namespace testingActcad
             sb = new Beam();
 
             sb.ProfileName = selectedPfname;
+            values.ProfileName = selectedPfname;
             sb.closeProfilesWindow();
             sb = null;
         }

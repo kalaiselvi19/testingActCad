@@ -17,7 +17,6 @@ D:\Tek1\vs2013AcadDotnetProjects\testingActcad\testingActcad\bin\Debug\TD_DynBlo
 D:\Tek1\vs2013AcadDotnetProjects\testingActcad\testingActcad\bin\Debug\TD_SpatialIndex_4.3_15.dll
 D:\Tek1\vs2013AcadDotnetProjects\testingActcad\testingActcad\bin\Debug\sisl.dll
 D:\Tek1\vs2013AcadDotnetProjects\testingActcad\testingActcad\bin\Debug\libcrypto.dll
-D:\Tek1\vs2013AcadDotnetProjects\testingActcad\testingActcad\obj\Debug\Interop.IntelliCAD.dll
 D:\Tek1\vs2013AcadDotnetProjects\testingActcad\testingActcad\obj\Debug\Interop.Scripting.dll
 D:\Tek1\vs2013AcadDotnetProjects\testingActcad\testingActcad\obj\Debug\testingActcad.csproj.ResolveComReference.cache
 D:\Tek1\vs2013AcadDotnetProjects\testingActcad\testingActcad\obj\Debug\beamproperties.baml
@@ -34,4 +33,3 @@ D:\Tek1\vs2013AcadDotnetProjects\testingActcad\testingActcad\obj\Debug\testingAc
 D:\Tek1\vs2013AcadDotnetProjects\testingActcad\testingActcad\obj\Debug\testingActcad.csproj.GenerateResource.Cache
 D:\Tek1\vs2013AcadDotnetProjects\testingActcad\testingActcad\obj\Debug\testingActcad.dll
 D:\Tek1\vs2013AcadDotnetProjects\testingActcad\testingActcad\obj\Debug\testingActcad.pdb
-D:\Tek1\vs2013AcadDotnetProjects\testingActcad\testingActcad\obj\Debug\testingActcad.csprojResolveAssemblyReference.cache
