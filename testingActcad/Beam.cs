@@ -253,26 +253,32 @@ namespace testingActcad
                 XmlDataDocument xmldoc = new XmlDataDocument();
                 XmlNodeList xmlnode;
                 int i = 0;
-                FileStream fs = new FileStream(xmlfile, FileMode.Open, FileAccess.Read);
-                xmldoc.Load(fs);
-                xmlnode = xmldoc.GetElementsByTagName("ProfileNames");
-                dict = new Dictionary<string, List<ProfileNames>>();
-                for (i = 0; i <= xmlnode.Count - 1; i++)
+                //FileStream fs = new FileStream(xmlfile, FileMode.Open, FileAccess.Read);
+                
+                //string str = null;
+                using (FileStream fs = new FileStream(xmlfile, FileMode.Open, FileAccess.Read))
                 {
-                    xmlnode[i].ChildNodes.Item(0).InnerText.Trim();
-                   
-                    ProfileName = xmlnode[i].ChildNodes.Item(0).InnerText.Trim();
-                    Ht = xmlnode[i].ChildNodes.Item(1).InnerText.Trim();
-                    Wd = xmlnode[i].ChildNodes.Item(2).InnerText.Trim();
-                    webthk = xmlnode[i].ChildNodes.Item(3).InnerText.Trim();
-                    flangethk = xmlnode[i].ChildNodes.Item(4).InnerText.Trim();
-                    wt = xmlnode[i].ChildNodes.Item(5).InnerText.Trim();
+                    xmldoc.Load(fs);
+                    xmlnode = xmldoc.GetElementsByTagName("ProfileNames");
+                    dict = new Dictionary<string, List<ProfileNames>>();
+                    for (i = 0; i <= xmlnode.Count - 1; i++)
+                    {
+                        xmlnode[i].ChildNodes.Item(0).InnerText.Trim();
+                        //str = xmlnode[i].ChildNodes.Item(0).InnerText.Trim() + "  " + xmlnode[i].ChildNodes.Item(1).InnerText.Trim() + "  " + xmlnode[i].ChildNodes.Item(2).InnerText.Trim();
+                        //MessageBox.Show(str);
+                        ProfileName = xmlnode[i].ChildNodes.Item(0).InnerText.Trim();
+                        Ht = xmlnode[i].ChildNodes.Item(1).InnerText.Trim();
+                        Wd = xmlnode[i].ChildNodes.Item(2).InnerText.Trim();
+                        webthk = xmlnode[i].ChildNodes.Item(3).InnerText.Trim();
+                        flangethk = xmlnode[i].ChildNodes.Item(4).InnerText.Trim();
+                        wt = xmlnode[i].ChildNodes.Item(5).InnerText.Trim();
 
-                    var ProfileNames = new ProfileNames { ProfileName = ProfileName, Height = Ht, Width = Wd, Flange_thickness = flangethk, weight_per_unit_length = wt, Web_thickness = webthk };
-                    pflist = new List<ProfileNames>();
-                    pflist.Add(ProfileNames);
+                        var ProfileNames = new ProfileNames { ProfileName = ProfileName, Height = Ht, Width = Wd, Flange_thickness = flangethk, weight_per_unit_length = wt, Web_thickness = webthk };
+                        pflist = new List<ProfileNames>();
+                        pflist.Add(ProfileNames);
 
-                    dict.Add(ProfileName, pflist);
+                        dict.Add(ProfileName, pflist);
+                    }
                 }
             }
             catch (Teigha.Runtime.Exception ex)
