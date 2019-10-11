@@ -114,7 +114,8 @@ namespace testingActcad
                     bpw = new BeamPropertiesWindow();
                 }
                 bpw.ShowDialog();
-                IntelliCAD.ApplicationServices.Application.ShowAlertDialog(values.ProfileName);
+                System.Windows.Forms.MessageBox.Show(values.ProfileName);
+                //IntelliCAD.ApplicationServices.Application.ShowAlertDialog(values.ProfileName);
                 
                 // IntelliCAD.ApplicationServices.Application.ShowModelessDialog(bpw);
             }

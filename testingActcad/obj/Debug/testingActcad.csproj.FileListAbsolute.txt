@@ -33,3 +33,4 @@ D:\Tek1\vs2013AcadDotnetProjects\testingActcad\testingActcad\obj\Debug\testingAc
 D:\Tek1\vs2013AcadDotnetProjects\testingActcad\testingActcad\obj\Debug\testingActcad.csproj.GenerateResource.Cache
 D:\Tek1\vs2013AcadDotnetProjects\testingActcad\testingActcad\obj\Debug\testingActcad.dll
 D:\Tek1\vs2013AcadDotnetProjects\testingActcad\testingActcad\obj\Debug\testingActcad.pdb
+D:\Tek1\vs2013AcadDotnetProjects\testingActcad\testingActcad\obj\Debug\testingActcad.csprojResolveAssemblyReference.cache

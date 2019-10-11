@@ -9,6 +9,9 @@ namespace testingActcad
     /// </summary>
     public partial class beamproperties : UserControl
     {
+        public string profilename;
+       
+        
         private Beam sb;
 
         private ucProfilesWindow upfw;
@@ -43,8 +46,8 @@ namespace testingActcad
 
             upfw = null;
             upfw = new ucProfilesWindow();
-
-            IntelliCAD.ApplicationServices.Application.ShowModelessDialog(upfw);
+            upfw.ShowDialog();
+          //  IntelliCAD.ApplicationServices.Application.ShowModelessDialog(upfw);
         }
 
         private void chkCheck_Changed(object sender, RoutedEventArgs e)
@@ -148,6 +151,7 @@ namespace testingActcad
             sb.plane_txt = this.txtPlane.Text;
             sb.rotation_txt = this.txtRotation.Text;
             sb.Name = this.txtName.Text;
+            profilename = this.txtProfile.Text;
         }
 
         private void btnLoadXml_Click(object sender, RoutedEventArgs e)
